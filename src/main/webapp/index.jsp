@@ -28,6 +28,15 @@ sess.save(e1);
 sess.getTransaction().commit();
 out.println("Successfully Saved");
 out.println("<br>+*********************************+");
+Query query=sess.createQuery("from Employee");
+List<Employee> empList=query.list();
+for(Employee emp:empList){
+	out.println("<br/>id:\t"+emp.getId()+"\tFirst Name:-\t"+emp.getFirstName()
+	+"\tLast Name:"+emp.getLastName()
+			);
+	
+	
+}
 sess.close();
 factory.close();}catch(Exception e){
 	out.println(e.getMessage());
